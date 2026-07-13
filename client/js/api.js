@@ -5,12 +5,13 @@
 /* ── API ─────────────────────────────────────── */
 const AtmosAPI = (() => {
   // works on localhost:3000 and on any deployed host
-  const BASE = () => {
-    if (window.location.port === '3000' || window.location.hostname === 'localhost') {
-      return '';  // same origin
-    }
-    return '';
-  };
+ const BASE = () => {
+  if (window.location.hostname === "localhost") {
+    return "";
+  }
+
+  return "https://atmos-3d-production.up.railway.app";
+ };
 
   let busy = false;
 
