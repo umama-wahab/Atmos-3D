@@ -1,0 +1,19 @@
+{
+  "name": "atmos",
+  "version": "1.0.0",
+  "description": "Minimal weather app — real photographic backgrounds, frosted glass UI, sage green theme",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev":   "nodemon server/server.js"
+  },
+  "dependencies": {
+    "cors":    "^2.8.5",
+    "dotenv":  "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": { "node": ">=18.0.0" }
+}

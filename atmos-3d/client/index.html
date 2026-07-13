@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atmos – Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- BACKGROUND LAYER -->
+  <div id="bg-layer">
+    <div id="bg-image"></div>
+    <div id="bg-overlay"></div>
+    <div id="bg-particles"></div>
+  </div>
+
+  <!-- LOADING -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <p class="loader-brand">ATMOS</p>
+      <p class="loader-sub" id="loader-sub">Loading…</p>
+      <div class="loader-bar-bg"><div id="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- UI LAYER -->
+  <div id="app">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="brand">ATMOS</div>
+      <div class="search-wrap">
+        <div class="search-box" id="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="search-input" type="text" placeholder="Search any city…" autocomplete="off" spellcheck="false"/>
+          <button id="search-btn">→</button>
+        </div>
+        <div id="search-error"></div>
+        <div id="recents-drop" class="recents-drop">
+          <div class="recents-head">
+            <span>Recent</span>
+            <button id="clear-recents">Clear all</button>
+          </div>
+          <div id="recents-list"></div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="time-display">
+          <span id="clock">--:--</span>
+          <span id="clock-date"></span>
+        </div>
+        <button class="icon-btn" id="btn-fav" title="Favorites">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN WEATHER DISPLAY -->
+    <main class="main-content" id="main-content">
+      <div class="weather-hero" id="weather-hero">
+        <div class="hero-city" id="hero-city">—</div>
+        <div class="hero-country" id="hero-country"></div>
+        <div class="hero-temp-wrap">
+          <span class="hero-temp" id="hero-temp">—</span>
+          <span class="hero-unit">°C</span>
+        </div>
+        <div class="hero-desc" id="hero-desc">—</div>
+        <div class="hero-feels" id="hero-feels"></div>
+      </div>
+    </main>
+
+    <!-- BOTTOM SECTION -->
+    <footer class="bottom-section" id="bottom-section">
+
+      <!-- Stats row -->
+      <div class="stats-row" id="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon">💧</div>
+          <div class="stat-label">Humidity</div>
+          <div class="stat-val" id="s-humidity">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💨</div>
+          <div class="stat-label">Wind</div>
+          <div class="stat-val" id="s-wind">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌡</div>
+          <div class="stat-label">Pressure</div>
+          <div class="stat-val" id="s-pressure">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👁</div>
+          <div class="stat-label">Visibility</div>
+          <div class="stat-val" id="s-visibility">—</div>
+        </div>
+      </div>
+
+      <!-- Forecast -->
+      <div class="forecast-card" id="forecast-card">
+        <div class="forecast-label">5-DAY FORECAST</div>
+        <div class="forecast-row" id="forecast-row"></div>
+      </div>
+
+    </footer>
+
+    <!-- FAVORITES PANEL -->
+    <div class="fav-panel" id="fav-panel">
+      <div class="fav-head">
+        <span>Favorites</span>
+        <button id="fav-close">✕</button>
+      </div>
+      <div id="fav-list"></div>
+      <button id="fav-add">+ Add Current City</button>
+    </div>
+
+  </div><!-- end #app -->
+
+  <script src="js/weather.js"></script>
+  <script src="js/backgrounds.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
